@@ -3,6 +3,14 @@ import { css, Theme } from "@emotion/react";
 import { BreakPoints, Spacings } from "../../../../theme";
 import { Link } from "react-router-dom";
 
+export const ShowSearchWrapper = styled.div`
+  width: 50%;
+  @media (max-width: ${BreakPoints.mobile}) {
+    width: 90%;
+    flex-direction: column;
+  }
+`;
+
 export const Shows = styled.div`
   display: flex;
   flex-direction: row;
@@ -17,6 +25,7 @@ export const StyledShowItem = styled(Link)(
     css(
       theme &&
         css`
+          border-radius: ${Spacings.xSmall};
           color: ${theme.text.color};
           text-decoration: none;
           position: relative;

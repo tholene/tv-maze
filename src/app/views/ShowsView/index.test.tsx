@@ -1,10 +1,4 @@
-import {
-  screen,
-  fireEvent,
-  render,
-  findByText,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import ShowsView from "./index";
 import { ThemeProvider } from "@emotion/react";
 import theme from "../../../theme";
