@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./theme";
 import { routes } from "./routes";
-import loadable from '@loadable/component';
+import loadable from "@loadable/component";
 
 const AppContainer = styled.div`
   font-family: "Helvetica", sans-serif;
@@ -14,7 +14,7 @@ const AppContainer = styled.div`
 `;
 
 const LoadableView = loadable(
-  ({view}: {view: string}) => import(`./app/views/${view}/index`)
+  ({ view }: { view: string }) => import(`./app/views/${view}/index`)
 );
 
 const App = () => {
@@ -22,18 +22,16 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <AppContainer>
         <Router>
-        <Routes>
-          {routes.map((route) => (
-            <Route
-              key={`view.${route.name}`}
-              path={route.path}
-              element={<LoadableView view={route.view} />}
-            />
-          ))}
-          <Route path="*">
-            Not found
-          </Route>
-        </Routes>
+          <Routes>
+            {routes.map((route) => (
+              <Route
+                key={`view.${route.name}`}
+                path={route.path}
+                element={<LoadableView view={route.view} />}
+              />
+            ))}
+            <Route path="*">Not found</Route>
+          </Routes>
         </Router>
       </AppContainer>
     </ThemeProvider>
