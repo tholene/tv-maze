@@ -24,7 +24,10 @@ const ShowSearch = ({ onChange }: { onChange: (shows: Show[]) => void }) => {
   const [getShows, { data }] = useTVMaze();
 
   const handleOnChange = useCallback(
-    (evt: ChangeEvent<HTMLInputElement>) => setSearchTerm(evt.target.value),
+    (evt: ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(evt.target.value)
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
@@ -41,6 +44,7 @@ const ShowSearch = ({ onChange }: { onChange: (shows: Show[]) => void }) => {
         setSearchParams(searchParams);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [searchTerm]
   ) as KeyboardEventHandler<HTMLInputElement>;
 
@@ -49,10 +53,12 @@ const ShowSearch = ({ onChange }: { onChange: (shows: Show[]) => void }) => {
     if (searchTerm) {
       getShows(GET_SHOWS_REQUEST(searchTerm));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     onChange(parseSearchResult(data) as Show[]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (

@@ -6,6 +6,7 @@ import { pathOr } from "ramda";
 
 const ShowListItem = ({ show }: { show: Show }) => (
   <StyledShowItem
+    data-testid="show"
     to={`/show/${show.id}`}
     image={pathOr("", ["image", "original"], show)}
   >
