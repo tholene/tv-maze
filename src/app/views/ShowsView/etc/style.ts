@@ -30,7 +30,7 @@ export const StyledShowItem = styled(Link)(
           text-decoration: none;
           position: relative;
           overflow: hidden;
-          background-color: ${theme.app.foreground};
+          background-color: ${theme.app.primary};
           padding: ${Spacings.small} ${Spacings.medium};
           margin: 1rem;
           height: 100%;

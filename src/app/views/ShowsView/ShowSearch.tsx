@@ -13,6 +13,8 @@ import { Show } from "../../interfaces/Show";
 import { parseSearchResult } from "./etc/utils";
 
 import { equals, propOr } from "ramda";
+import Spinner from "../../components/Spinner";
+import SlowConnectionWarning from "../../components/SlowConnectionWarning";
 
 const SEARCH_TERM_PARAM = "q";
 
@@ -23,7 +25,7 @@ const ShowSearch = ({ onChange }: { onChange: (shows: Show[]) => void }) => {
       ? decodeURIComponent(searchParams.get(SEARCH_TERM_PARAM) || "")
       : ""
   );
-  const [getShows, { data }] = useTVMaze();
+  const [getShows, { data, loading, error }] = useTVMaze();
 
   const handleOnChange = useCallback(
     (evt: ChangeEvent<HTMLInputElement>) => {
@@ -58,9 +60,15 @@ const ShowSearch = ({ onChange }: { onChange: (shows: Show[]) => void }) => {
   useEffect(() => {
     if (searchTerm) {
       getShows(GET_SHOWS_REQUEST(searchTerm));
+      // getShows("asdasdjaks");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (error) onChange([]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error]);
 
   useEffect(() => {
     onChange(parseSearchResult(data) as Show[]);
@@ -75,6 +83,9 @@ const ShowSearch = ({ onChange }: { onChange: (shows: Show[]) => void }) => {
         onChange={handleOnChange}
         onKeyDown={handleOnKeyDown}
       />
+      {loading && <Spinner centered />}
+      <SlowConnectionWarning loading={loading} />
+      {error && <span>{error.toString()}</span>}
     </ShowSearchWrapper>
   );
 };

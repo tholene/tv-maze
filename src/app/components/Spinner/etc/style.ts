@@ -20,11 +20,11 @@ export const SpinnerContainer = styled.div(
 export const Spinner = styled.div(
   ({ theme }) =>
     css`
-      border: 1rem solid ${theme.app.foreground};
-      border-top: 1rem solid ${theme.app.accent};
+      border: 0.5rem solid ${theme.app.primary};
+      border-top: 0.5rem solid ${theme.app.tertiary};
       border-radius: 50%;
-      width: 7.5rem;
-      height: 7.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
       animation: spin 2s linear infinite;
 
       @keyframes spin {

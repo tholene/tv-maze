@@ -3,10 +3,9 @@ import "@emotion/react";
 declare module "@emotion/react" {
   export interface Theme {
     app: {
-      foreground: string;
       primary: string;
-      accent: string;
-      critical: string;
+      secondary: string;
+      tertiary: string;
     };
     text: {
       color: string;

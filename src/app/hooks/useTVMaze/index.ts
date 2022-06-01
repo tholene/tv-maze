@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import {useCallback, useEffect, useState} from "react";
 import config from "../../../config";
 
 export const GET_SHOWS_REQUEST = (query: string) => `search/shows?q=${query}`;
@@ -23,11 +23,10 @@ const useTVMaze = (
         .get(`${config.TV_MAZE_BASE_URL}/${fetchArg}`)
         .then((response) => {
           setData(response);
+          setLoading(false);
         })
         .catch((error) => {
           setError(error);
-        })
-        .finally(() => {
           setLoading(false);
         });
     }

@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import {BrowserRouter as Router, Navigate, Route, Routes,} from "react-router-dom";
 import styled from "@emotion/styled";
-import { ThemeProvider } from "@emotion/react";
+import {ThemeProvider} from "@emotion/react";
 import theme from "./theme";
 import ShowsView from "./app/views/ShowsView";
 import ShowView from "./app/views/ShowView";

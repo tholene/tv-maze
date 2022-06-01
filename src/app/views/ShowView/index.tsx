@@ -3,21 +3,16 @@ import Divider from "../../components/Divider";
 import Page from "../../components/Page";
 import Section from "../../components/Section";
 import Title from "../../components/Title";
-import { useNavigate, useParams } from "react-router";
-import useTVMaze, { GET_SHOW_BY_ID_REQUEST } from "../../hooks/useTVMaze";
-import { join, pathOr, propOr } from "ramda";
-import { parseShow } from "./etc/utils";
-import { sanitize } from "dompurify";
-import {
-  BackLink,
-  ShowDetails,
-  ShowImage,
-  ShowInformation,
-  ShowSummary,
-} from "./etc/style";
-import { Show } from "../../interfaces/Show";
+import {useNavigate, useParams} from "react-router";
+import useTVMaze, {GET_SHOW_BY_ID_REQUEST} from "../../hooks/useTVMaze";
+import {join, pathOr, propOr} from "ramda";
+import {parseShow} from "./etc/utils";
+import {sanitize} from "dompurify";
+import {BackLink, ShowDetails, ShowImage, ShowInformation, ShowSummary,} from "./etc/style";
+import {Show} from "../../interfaces/Show";
 import Spinner from "../../components/Spinner";
 import Centered from "../../components/Centered";
+import SlowConnectionWarning from "../../components/SlowConnectionWarning";
 
 const DefaultStringValue = "N/A";
 
@@ -32,6 +27,7 @@ const ShowView = () => {
     return (
       <Page>
         <Spinner centered />
+        <SlowConnectionWarning loading={loading} />
       </Page>
     );
   }

@@ -5,7 +5,7 @@ import { BreakPoints, Spacings } from "../../../../theme";
 export const BackLink = styled(Link)`
   text-decoration: none;
   font-weight: bold;
-  color: ${({ theme }) => theme.app.accent};
+  color: ${({ theme }) => theme.app.tertiary};
   :before {
     content: "<- ";
   }
@@ -30,7 +30,7 @@ export const ShowInformation = styled.div`
     flex-direction: column;
   }
   span {
-    color: ${({ theme }) => theme.app.primary};
+    color: ${({ theme }) => theme.app.secondary};
     font-size: 0.9rem;
   }
 `;

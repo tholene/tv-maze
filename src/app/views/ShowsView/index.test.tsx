@@ -1,12 +1,12 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import {fireEvent, render, screen} from "@testing-library/react";
 import ShowsView from "./index";
-import { ThemeProvider } from "@emotion/react";
+import {ThemeProvider} from "@emotion/react";
 import theme from "../../../theme";
-import { MemoryRouter } from "react-router";
+import {MemoryRouter} from "react-router";
 import axios from "axios";
-import { map, prop } from "ramda";
+import {map, prop} from "ramda";
 
-import { BrowserRouter } from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;

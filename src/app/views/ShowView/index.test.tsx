@@ -1,12 +1,8 @@
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import {render, screen, waitForElementToBeRemoved,} from "@testing-library/react";
 import ShowView from "./index";
-import { ThemeProvider } from "@emotion/react";
+import {ThemeProvider} from "@emotion/react";
 import theme from "../../../theme";
-import { MemoryRouter } from "react-router";
+import {MemoryRouter} from "react-router";
 import axios from "axios";
 
 jest.mock("axios");
