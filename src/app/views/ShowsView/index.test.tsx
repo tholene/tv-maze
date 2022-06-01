@@ -1,12 +1,12 @@
-import {fireEvent, render, screen} from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import ShowsView from "./index";
-import {ThemeProvider} from "@emotion/react";
+import { ThemeProvider } from "@emotion/react";
 import theme from "../../../theme";
-import {MemoryRouter} from "react-router";
+import { MemoryRouter } from "react-router";
 import axios from "axios";
-import {map, prop} from "ramda";
+import { map, prop } from "ramda";
 
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -219,13 +219,19 @@ describe("views::ShowsView", () => {
       </ThemeProvider>
     );
 
-    fireEvent.change(screen.getByPlaceholderText("Search shows"), {
-      target: { value: "Matrix" },
-    });
+    fireEvent.change(
+      screen.getByPlaceholderText("Search for shows... (ENTER to search)"),
+      {
+        target: { value: "Matrix" },
+      }
+    );
 
-    fireEvent.keyDown(screen.getByPlaceholderText("Search shows"), {
-      code: "Enter",
-    });
+    fireEvent.keyDown(
+      screen.getByPlaceholderText("Search for shows... (ENTER to search)"),
+      {
+        code: "Enter",
+      }
+    );
 
     expect(mockedAxios.get).toHaveBeenCalledWith(
       "https://api.tvmaze.com/search/shows?q=Matrix"
@@ -243,13 +249,19 @@ describe("views::ShowsView", () => {
       </ThemeProvider>
     );
 
-    fireEvent.change(screen.getByPlaceholderText("Search shows"), {
-      target: { value: "Matrix" },
-    });
+    fireEvent.change(
+      screen.getByPlaceholderText("Search for shows... (ENTER to search)"),
+      {
+        target: { value: "Matrix" },
+      }
+    );
 
-    fireEvent.keyDown(screen.getByPlaceholderText("Search shows"), {
-      code: "Enter",
-    });
+    fireEvent.keyDown(
+      screen.getByPlaceholderText("Search for shows... (ENTER to search)"),
+      {
+        code: "Enter",
+      }
+    );
 
     expect(await showsToText()).toEqual(["Matrix", "Threat Matrix", "Martin"]);
 
@@ -281,13 +293,19 @@ describe("views::ShowsView", () => {
       </ThemeProvider>
     );
 
-    fireEvent.change(screen.getByPlaceholderText("Search shows"), {
-      target: { value: "Matrix" },
-    });
+    fireEvent.change(
+      screen.getByPlaceholderText("Search for shows... (ENTER to search)"),
+      {
+        target: { value: "Matrix" },
+      }
+    );
 
-    fireEvent.keyDown(screen.getByPlaceholderText("Search shows"), {
-      code: "Enter",
-    });
+    fireEvent.keyDown(
+      screen.getByPlaceholderText("Search for shows... (ENTER to search)"),
+      {
+        code: "Enter",
+      }
+    );
 
     expect(await showsToHrefs()).toEqual([
       "/show/3616",

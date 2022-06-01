@@ -78,7 +78,7 @@ const ShowSearch = ({ onChange }: { onChange: (shows: Show[]) => void }) => {
   return (
     <ShowSearchWrapper>
       <Input
-        placeholder={"Search shows"}
+        placeholder={"Search for shows... (ENTER to search)"}
         value={searchTerm}
         onChange={handleOnChange}
         onKeyDown={handleOnKeyDown}
