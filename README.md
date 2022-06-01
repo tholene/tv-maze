@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## First off
+
+You need to run `yarn install` before any of the below scripts will work.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -39,7 +43,7 @@ Here are the basic building blocks along with some more complex shared component
 
 ### Hooks
 
-This is where... well - the hooks are.
+This is where... well - the hooks are. Currently only one hook exists.
 
 ### Interfaces
 
