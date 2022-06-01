@@ -1,8 +1,14 @@
 export interface Show {
   genres: string[];
   id: number;
-  image: any;
+  image: {
+    original: string;
+  };
   name: string;
-  rating: any;
+  rating: {
+    average: number;
+  };
   summary: string;
+  ended: string;
+  premiered: string;
 }
